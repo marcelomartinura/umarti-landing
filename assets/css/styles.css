@@ -82,8 +82,7 @@ p { margin: 0 0 1em; }
 }
 .hero h1 { max-width: 14ch; }
 .hero__lead { font-size: clamp(1.08rem, 1.6vw, 1.25rem); color: #C9D6DC; max-width: 52ch; margin-top: 28px; }
-.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin: 34px 0 28px; }
-.hero__where { font-size: 0.95rem; color: #8FA6B2; margin: 0; }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin: 34px 0 0; }
 .hero__portrait { margin: 0; position: relative; justify-self: center; }
 .hero__portrait picture {
   display: block;
@@ -177,6 +176,14 @@ p { margin: 0 0 1em; }
 .case li { margin-bottom: 6px; }
 .case li::marker { color: var(--teal-deep); }
 
+/* Presentación comercial */
+.deck-cta {
+  margin-top: 64px; padding: 28px 32px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px;
+  background: var(--ink); color: var(--white); border-radius: 16px;
+}
+.deck-cta p { margin: 0; font-size: 1.15rem; font-stretch: 108%; font-weight: 600; max-width: 46ch; }
+
 /* Partners y modalidades */
 .ticks { list-style: none; margin: 0 0 48px; padding: 0; }
 .ticks li { padding: 12px 0 12px 34px; border-bottom: 1px solid var(--line); position: relative; }
@@ -192,6 +199,23 @@ p { margin: 0 0 1em; }
 /* Sobre mí */
 .about { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(32px, 6vw, 96px); }
 .about__text p { font-size: 1.15rem; max-width: 56ch; }
+
+/* Preguntas frecuentes */
+.faq { border-top: 2px solid var(--ink); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  list-style: none; cursor: pointer; position: relative;
+  padding: 20px 44px 20px 0; font-weight: 700; font-stretch: 108%; font-size: 1.08rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: ""; position: absolute; right: 6px; top: 50%; width: 10px; height: 10px;
+  border-right: 2.5px solid var(--teal-deep); border-bottom: 2.5px solid var(--teal-deep);
+  transform: translateY(-70%) rotate(45deg); transition: transform .2s ease;
+}
+.faq details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+.faq details p { color: var(--slate); margin: 0 0 22px; max-width: 62ch; }
+@media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
 
 /* Formulario */
 .form { display: grid; gap: 18px; }
